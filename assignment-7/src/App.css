@@ -1,0 +1,101 @@
+/* App.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.table-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  padding: 32px;
+  overflow-x: auto;
+}
+
+.table-title {
+  color: #0f172a;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.ipl-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 14px;
+}
+
+.ipl-table th {
+  background-color: #1e293b;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 14px 16px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* Rounded corners for the table headers */
+.ipl-table th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.ipl-table th:last-child {
+  border-top-right-radius: 8px;
+}
+
+.ipl-table td {
+  padding: 14px 16px;
+  color: #334155;
+  border-bottom: 1px solid #e2e8f0;
+  font-weight: 500;
+}
+
+/* Zebra striping */
+.ipl-table tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+/* Hover effects */
+.ipl-table tbody tr {
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.ipl-table tbody tr:hover {
+  background-color: #f1f5f9;
+  cursor: default;
+}
+
+/* Alignments */
+.ipl-table td.align-left,
+.ipl-table th.align-left {
+  text-align: left;
+}
+
+.ipl-table td.team-name {
+  color: #1e293b;
+  font-weight: 600;
+}

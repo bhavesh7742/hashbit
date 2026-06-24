@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Tasks Output</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    .task {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .task h3 {
+      margin-top: 0;
+      color: #2c3e50;
+      border-bottom: 2px solid #ecf0f1;
+      padding-bottom: 8px;
+    }
+
+    .question {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+
+    pre {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      padding: 15px;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 0;
+    }
+
+    code {
+      font-family: Consolas, Monaco, monospace;
+      font-size: 14px;
+      color: #c7254e;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>JavaScript Tasks Output</h1>
+  <div id="output"></div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function printTask(title, question, result) {
+      const div = document.createElement("div");
+      div.className = "task";
+      div.innerHTML = `
+        <h3>${title}</h3>
+        <p class="question"><strong>Question:</strong> ${question}</p>
+        <p><strong>Output:</strong></p>
+        <pre><code>${result}</code></pre>
+      `;
+      output.appendChild(div);
+    }
+
+    // Task 1: let, const, var
+    function scopeDemo() {
+      var a = "I am var (function scoped)";
+      let b = "I am let (block scoped)";
+      const c = "I am const (block scoped)";
+      return `${a}\n${b}\n${c}`;
+    }
+    printTask(
+      "1. let, const, var Scope",
+      "Write a JavaScript function that declares a variable using let, const, and var. What is the difference in scope for each?",
+      scopeDemo()
+    );
+
+    // Task 2: Return second fruit
+    const fruits = ["Apple", "Banana", "Mango", "Orange", "Grapes"];
+    function getSecondFruit() {
+      return fruits[1];
+    }
+    printTask(
+      "2. Second Fruit",
+      "Create an array called fruits that contains five different fruit names. Write a function that returns the second fruit in the array.",
+      getSecondFruit()
+    );
+
+    // Task 3: Push and Pop
+    function modifyArray(arr) {
+      arr.push("New Element");
+      arr.pop();
+      return arr;
+    }
+    printTask(
+      "3. Modify Array (Push and Pop)",
+      "Write a function that takes an array as an argument, adds a new element to the end of the array using push(), and then removes the last element using pop(). Return the modified array.",
+      modifyArray(["One", "Two", "Three"]).join(", ")
+    );
+
+    // Task 4: Square Numbers with map()
+    const numbers = [1, 2, 3, 4, 5];
+    function squareNumbers(arr) {
+      return arr.map((num) => num * num);
+    }
+    printTask(
+      "4. Squared Numbers",
+      "Create an array of numbers and write a function that uses the map() method to return a new array containing each number squared.",
+      squareNumbers(numbers).join(", ")
+    );
+
+    // Task 5: Filter odd numbers
+    function filterOdds(arr) {
+      return arr.filter((num) => num % 2 !== 0);
+    }
+    printTask(
+      "5. Odd Numbers",
+      "Write a function that filters out all even numbers from an array of numbers using the filter() method. Return the new array of odd numbers",
+      filterOdds(numbers).join(", ")
+    );
+
+    // Task 6: Greeting from object
+    const person = { name: "Bhavesh", age: 21, occupation: "Student" };
+    function greetPerson(obj) {
+      return `Hello, my name is ${obj.name}, I am ${obj.age} years old and work as a ${obj.occupation}.`;
+    }
+    printTask(
+      "6. Greet Person",
+      "Create an object called person with properties for name, age, and occupation. Write a function that logs a greeting message using these properties.",
+      greetPerson(person)
+    );
+
+    // Task 7: Rectangle Area
+    function calculateArea(rect) {
+      return rect.width * rect.height;
+    }
+    printTask(
+      "7. Area of Rectangle",
+      "Write a function that takes an object with properties width and height and returns the area of a rectangle (width * height).",
+      calculateArea({ width: 5, height: 10 })
+    );
+
+    // Task 8: Object Keys
+    const sampleObj = { a: 1, b: 2, c: 3 };
+    function getObjectKeys(obj) {
+      return Object.keys(obj);
+    }
+    printTask(
+      "8. Object Keys",
+      "Given an object with various properties, write a function that returns an array of the object’s keys using Object.keys().",
+      getObjectKeys(sampleObj).join(", ")
+    );
+
+    // Task 9: Merge Objects
+    const obj1 = { x: 10, y: 20 };
+    const obj2 = { y: 30, z: 40 };
+    function mergeObjects(o1, o2) {
+      return Object.assign({}, o1, o2);
+    }
+    const merged = mergeObjects(obj1, obj2);
+    printTask(
+      "9. Merged Object",
+      "Write a function that takes two objects as arguments and merges them into one object using Object.assign(). Return the new object.",
+      JSON.stringify(merged, null, 2)
+    );
+
+    // Task 10: Reduce sum
+    function sumArray(arr) {
+      return arr.reduce((sum, curr) => sum + curr, 0);
+    }
+    printTask(
+      "10. Sum of Numbers",
+      "Create an array of numbers and write a function that uses the reduce() method to calculate the sum of all the numbers in the array.",
+      sumArray(numbers)
+    );
+  </script>
+</body>
+
+</html>
